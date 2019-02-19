@@ -11,6 +11,9 @@ def greedy(elements, k, div_func=lambda x, y: x - y):
     k:        number of selected elements
     div_fuc:  diversity function to test the diversity between two elements
     """
+    if len(elements) < k:
+        return elements
+
     _elements = copy(elements)
 
     # randomly picked initial element
@@ -24,7 +27,7 @@ def greedy(elements, k, div_func=lambda x, y: x - y):
 
     while len(selected) < k:
         max_d = None
-        max_e = 0
+        max_e = None
         for e in _elements:
             for s in selected:
                 d = div_func(s, e)
