@@ -5,7 +5,7 @@
 
 ## Documentation
 
-Checkout the [documentation](doc) to initialize and run the project.
+Checkout the [documentation](docs) to initialize and run the project.
 
 
 ## Project context
