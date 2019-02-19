@@ -5,11 +5,23 @@ from copy import copy
 import random
 
 
-def greedy(elements, k, div_func=lambda x, y: x - y):
+def mean_of_differences(e, s):
     """
-    elements: input array, the initial set of elements
-    k:        number of selected elements
-    div_fuc:  diversity function to test the diversity between two elements
+    default diversity function element-set
+    :param e: element
+    :param s: set against which calculate diversity
+    :return:  diversity value
+    """
+    if len(s) == 0:
+        raise Exception("Set into element-set diversity function is empty.")
+    return sum([abs(e - x) for x in s]) / len(s)
+
+
+def greedy(elements, k, diversity_element_set=mean_of_differences):
+    """
+    elements:               input array, the initial set of elements
+    k:                      number of selected elements
+    diversity_element_set:  diversity function to test the diversity of an element and a set
     """
     if len(elements) < k:
         return elements
@@ -29,13 +41,10 @@ def greedy(elements, k, div_func=lambda x, y: x - y):
         max_d = None
         max_e = None
         for e in _elements:
-            for s in selected:
-                d = div_func(s, e)
-
-                # keep track of maximum diversity and related element
-                if max_d is None or max_d < d:
-                    max_d = d
-                    max_e = e
+            d = diversity_element_set(e, selected)
+            if max_d is None or max_d < d:
+                max_d = d
+                max_e = e
 
         # move the element from _elements to selected
         selected.append(max_e)
