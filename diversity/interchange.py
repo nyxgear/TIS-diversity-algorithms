@@ -4,46 +4,19 @@
 from copy import copy
 import random
 
-
-def mean_of_differences(e, s):
-    """
-    default diversity function element-set
-    :param e: element
-    :param s: set against which calculate diversity
-    :return:  diversity value
-    """
-    if len(s) == 0:
-        raise Exception("Set into element-set diversity function is empty.")
-    return sum([abs(e - x) for x in s]) / len(s)
+from .default_diversity_functions import mean_of_differences, diversity_set
 
 
-def default_set_diversity(s):
-    """
-    default diversity function element-set
-    :param s: set for which calculate the diversity
-    :return:  diversity value
-    """
-    if len(s) == 0:
-        raise Exception("Set into set diversity function is empty.")
-
-    diversity = 0
-    for i in range(len(s)):
-        for j in range(i, len(s)):
-            diversity += abs(s[i] - s[j])
-
-    return diversity
-
-
-def interchange(elements, k, diversity_element_set=mean_of_differences, diversity_set=default_set_diversity):
+def interchange(elements, k, diversity_element_set=mean_of_differences, diversity_set=diversity_set):
     """
     elements: input array, the initial set of elements
     k:        number of selected elements
     div_fuc:  diversity function to test the diversity between two elements
     """
-    _elements = copy(elements)
+    _elements = copy(list(elements))
 
-    if len(elements) < k:
-        return elements
+    if len(_elements) < k:
+        return _elements
 
     # pick k random elements as solution
     selected = random.choices(_elements, k=k)
