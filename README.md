@@ -1,11 +1,32 @@
 # Diversity algorithms
 *Collection of algorithms to compute diverisity between elements and idenfiy diverse element collections whitin a dataset*
 
+## Requirements
 
+Python 3.6 or higher installed.
+
+## Use
+
+```python
+import diversity as d
+
+elements = range(42)
+
+# greedy algorithm
+greedy_most_diverse = d.greedy(elements, 10)
+
+# interchange algorithm
+interchange_most_diverse = d.interchange(elements, 10)
+
+# neighborhood algorithm
+neighborhood_most_diverse = d.neighborhood(elements, 20)
+```
+
+Checkout [docs/use](docs/use.md) for further details.
 
 ## Documentation
 
-Checkout the [documentation](docs) to initialize and run the project.
+Checkout the [documentation](docs) to initialize the environment, use the module and run the tests.
 
 
 ## Project context
