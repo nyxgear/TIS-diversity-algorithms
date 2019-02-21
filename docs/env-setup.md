@@ -2,7 +2,7 @@
 
 Dependencies assumed to be already installed:
 
-- [Python], version 3.5 or higher
+- [Python 3]
 
 
 ## Project setup
@@ -59,4 +59,4 @@ $ source venv/bin/activate
 (venv) $ jupyter notebook .
 ```
 
-[Python]: https://www.python.org
+[Python 3]: https://www.python.org

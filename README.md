@@ -3,7 +3,7 @@
 
 ## Requirements
 
-Python 3.6 or higher installed.
+Python 3.
 
 ## Use
 
