@@ -16,7 +16,7 @@ def diversity_element_element(e1, e2):
     return abs(e1 - e2)
 
 
-def mean_of_differences(element, sett):
+def diversity_element_set(element, sett):
     """
     Default diversity function to compare an ELEMENT against a SET
     :param element: element

@@ -9,9 +9,10 @@ from .default_diversity_functions import diversity_element_element
 
 def neighborhood(elements, ngb_range, diversity_element_element=diversity_element_element):
     """
-    elements:  input array, the initial set of elements
-    ngb_range: neighborhood range used to define the neighbors of an element
-    div_fuc:   diversity function to test the diversity between two elements
+    elements:                   input array, the initial set of elements
+    ngb_range:                  neighborhood range used to define the neighbors of an element
+    diversity_element_element:  diversity function to test the diversity between two elements
+    return:                     set of most diverse selected elements
     """
     _elements = copy(list(elements))
 

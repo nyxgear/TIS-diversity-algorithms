@@ -4,14 +4,15 @@
 from copy import copy
 import random
 
-from .default_diversity_functions import mean_of_differences
+from .default_diversity_functions import diversity_element_set
 
 
-def greedy(elements, k, diversity_element_set=mean_of_differences):
+def greedy(elements, k, diversity_element_set=diversity_element_set):
     """
     elements:               input array, the initial set of elements
     k:                      number of selected elements
     diversity_element_set:  diversity function to test the diversity of an element and a set
+    return:                 set of most diverse selected elements
     """
     _elements = copy(list(elements))
 
