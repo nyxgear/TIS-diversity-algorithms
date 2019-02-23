@@ -42,9 +42,13 @@ def interchange(elements, k, diversity_element_set=diversity_element_set, divers
 
         # here min_e contain the element with the less diversity from the set selected
 
-        for z in filter(lambda x: x not in selected, _elements):
-            # new selected list of elements
+        compl_selected = list(filter(lambda x: x not in selected, _elements))
 
+        i = 0
+        while not s_changed and i < len(compl_selected):
+            z = compl_selected[i]
+
+            # new selected list of elements
             n_selected = copy(selected)
             n_selected.remove(min_e)
             n_selected.append(z)
@@ -52,6 +56,7 @@ def interchange(elements, k, diversity_element_set=diversity_element_set, divers
             if diversity_set(n_selected) > diversity_set(selected):
                 selected = copy(n_selected)
                 s_changed = not (z == min_e)
-                break
 
+            i += 1
+            
     return selected
